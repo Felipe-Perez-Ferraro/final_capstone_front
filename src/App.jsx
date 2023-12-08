@@ -13,4 +13,8 @@ const App = () => (
   </Router>
 );
 
+// Should this reflect of the back-end like user/boats/reservations?
+// or /boats, /boats/boatdetails, /reservations?
+// will handle that later I think
+
 export default App;
