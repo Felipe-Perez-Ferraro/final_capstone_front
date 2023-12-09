@@ -1,7 +1,7 @@
 import React from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
-import Layout from './components/Layout/Layout';
-import Boats from './components/Boats/Boats';
+import Layout from './components/Layout';
+import Boats from './components/pages/Boats';
 
 const App = () => (
   <Router>
