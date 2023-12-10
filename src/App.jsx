@@ -1,20 +1,25 @@
 import React from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import Boats from './components/pages/Boats';
+import BoatDetails from './components/pages/BoatDetails';
+import Reservations from './components/pages/Reservations';
+import Login from './components/pages/Login';
+import Signup from './components/pages/Signup';
 
 const App = () => (
   <Router>
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Boats />} />
+        <Route path="login" element={<Login />} />
+        <Route path="signup" element={<Signup />} />
+        <Route path="boats" element={<Boats />} />
+        <Route path="boats/boatdetails" element={<BoatDetails />} />
+        <Route path="reservations" element={<Reservations />} />
       </Route>
     </Routes>
   </Router>
 );
-
-// Should this reflect of the back-end like user/boats/reservations?
-// or /boats, /boats/boatdetails, /reservations?
-// will handle that later I think
 
 export default App;
