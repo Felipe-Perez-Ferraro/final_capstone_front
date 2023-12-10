@@ -6,15 +6,15 @@ import Logout from './Logout';
 const Header = () => {
   const user = useSelector(selectUser);
   const links = [
-    { path: '/', text: 'Boats' },
+    { path: '/boats', text: 'Boats' },
     { path: '/reservations', text: 'Reservations' },
     ...(user ? [] : [{ path: '/login', text: 'Login' }, { path: '/signup', text: 'Signup' }]),
   ];
 
   return (
-    <header>
+    <header className="border-2 border-black p-4">
       <nav>
-        <ul>
+        <ul className="flex justify-between px-4 font-bold">
           {links.map(({ path, text }) => (
             <li key={text}>
               <NavLink to={path}>

@@ -27,8 +27,8 @@ const Signup = () => {
   };
 
   return (
-    <section>
-      <h2>Sign up</h2>
+    <section className="flex flex-col items-center gap-6">
+      <h2 className="text-center text-xl font-bold">Sign up</h2>
 
       <form onSubmit={handleSubmit}>
         <label htmlFor="name-input">
