@@ -2,28 +2,27 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const initialState = {
-  user: {},
+  user: JSON.parse(localStorage.getItem('user')) || null,
   isLoading: false,
   error: null,
+  message: null,
 };
 
 export const getUserLogin = createAsyncThunk(
   'usersession/getUserLogin',
-  async (user, thunkAPI) => {
+  async (name, thunkAPI) => {
     try {
       const response = await axios.post(
         'http://localhost:3001/login',
-        {
-          name: user.name,
-        },
+        { user: name },
         {
           headers: {
-            Authorization: `Bearer ${user.token}`,
             'Content-Type': 'application/json',
           },
         },
       );
-      console.log('Dispatching getUserLogin action');
+      console.log(response.data);
+      localStorage.setItem('user', JSON.stringify(response.data.status.data.user));
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
@@ -33,13 +32,11 @@ export const getUserLogin = createAsyncThunk(
 
 export const getUserSignup = createAsyncThunk(
   'usersession/getUserSignup',
-  async (user, thunkAPI) => {
+  async (name, thunkAPI) => {
     try {
       const response = await axios.post(
         'http://localhost:3001/signup',
-        {
-          name: user.name,
-        },
+        { user: name },
         {
           headers: {
             'Content-Type': 'application/json',
@@ -67,6 +64,7 @@ export const logoutUser = createAsyncThunk(
           },
         },
       );
+      localStorage.removeItem('user');
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
@@ -77,7 +75,11 @@ export const logoutUser = createAsyncThunk(
 const usersessionSlice = createSlice({
   name: 'usersession',
   initialState,
-  reducers: {},
+  reducers: {
+    clearMessage: (state) => {
+      state.message = null;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getUserLogin.pending, (state) => {
@@ -85,7 +87,8 @@ const usersessionSlice = createSlice({
       })
       .addCase(getUserLogin.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.user = action.payload;
+        state.user = action.payload.status.data.user;
+        state.message = action.payload.status.message;
       })
       .addCase(getUserLogin.rejected, (state, action) => {
         state.isLoading = false;
@@ -97,6 +100,7 @@ const usersessionSlice = createSlice({
       .addCase(getUserSignup.fulfilled, (state, action) => {
         state.isLoading = false;
         state.user = action.payload;
+        state.message = action.payload.status.message;
       })
       .addCase(getUserSignup.rejected, (state, action) => {
         state.isLoading = false;
@@ -105,9 +109,10 @@ const usersessionSlice = createSlice({
       .addCase(logoutUser.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(logoutUser.fulfilled, (state) => {
+      .addCase(logoutUser.fulfilled, (state, action) => {
         state.isLoading = false;
         state.user = null;
+        state.message = action.payload.status.message;
       })
       .addCase(logoutUser.rejected, (state, action) => {
         state.isLoading = false;
@@ -121,3 +126,6 @@ export default usersessionSlice.reducer;
 export const selectUser = (state) => state.usersession.user;
 export const selectIsLoading = (state) => state.usersession.isLoading;
 export const selectError = (state) => state.usersession.error;
+export const selectMessage = (state) => state.usersession.message;
+
+export const { clearMessage } = usersessionSlice.actions;

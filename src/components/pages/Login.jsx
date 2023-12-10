@@ -1,22 +1,28 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { getUserLogin, selectError } from '../../redux/usersession/usersessionsSlice';
+import { useDispatch } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { getUserLogin } from '../../redux/usersession/usersessionsSlice';
 
 const Login = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [name, setName] = useState('');
-  const apiError = useSelector(selectError);
   const [formError, setFormError] = useState(null);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     if (!name) {
       setFormError('Name field cannot be empty');
       return;
     }
-    console.log('Submitting form');
-    dispatch(getUserLogin({ name }));
+    try {
+      console.log('Submitting form');
+      console.log(`Name: ${name}`);
+      await dispatch(getUserLogin({ name })).unwrap();
+      navigate('/boats');
+    } catch (err) {
+      console.error('Failed to login: ', err);
+    }
   };
 
   return (
@@ -29,7 +35,6 @@ const Login = () => {
           <input id="name-input" type="text" value={name} onChange={(e) => setName(e.target.value)} />
         </label>
         {formError && <p className="text-red-500">{formError}</p>}
-        {apiError && <p className="text-red-500">{apiError}</p>}
         <button type="submit">Login</button>
       </form>
 
