@@ -19,6 +19,7 @@ const Login = () => {
       console.log('Submitting form');
       console.log(`Name: ${name}`);
       await dispatch(getUserLogin({ name })).unwrap();
+      setName('');
       navigate('/boats');
     } catch (err) {
       console.error('Failed to login: ', err);

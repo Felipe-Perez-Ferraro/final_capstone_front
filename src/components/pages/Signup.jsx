@@ -1,20 +1,29 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getUserSignup, selectError } from '../../redux/usersession/usersessionsSlice';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { getUserSignup } from '../../redux/usersession/usersessionsSlice';
 
 const Signup = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [name, setName] = useState('');
   const [formError, setFormError] = useState(null);
-  const apiError = useSelector(selectError);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     if (!name) {
       setFormError('Name field cannot be empty');
       return;
     }
-    dispatch(getUserSignup({ name }));
+    try {
+      console.log('Submitting form');
+      console.log(`Name: ${name}`);
+      await dispatch(getUserSignup({ name })).unwrap();
+      setName('');
+      navigate('/login');
+    } catch (err) {
+      console.error('Failed to login: ', err);
+    }
   };
 
   return (
@@ -27,7 +36,6 @@ const Signup = () => {
           <input id="name-input" type="text" value={name} onChange={(e) => setName(e.target.value)} />
         </label>
         {formError && <p className="text-red-500">{formError}</p>}
-        {apiError && <p>{apiError}</p>}
         <button type="submit">Sign up</button>
       </form>
     </section>

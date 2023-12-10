@@ -52,23 +52,9 @@ export const getUserSignup = createAsyncThunk(
 
 export const logoutUser = createAsyncThunk(
   'usersession/logoutUser',
-  async (user, thunkAPI) => {
-    try {
-      const response = await axios.delete(
-        'http://localhost:3001/logout',
-        {},
-        {
-          headers: {
-            Authorization: `Bearer ${user.token}`,
-            'Content-Type': 'application/json',
-          },
-        },
-      );
-      localStorage.removeItem('user');
-      return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.response.data);
-    }
+  async () => {
+    localStorage.removeItem('user');
+    return { message: 'Logged out successfully.' };
   },
 );
 
@@ -93,30 +79,24 @@ const usersessionSlice = createSlice({
       .addCase(getUserLogin.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
+        state.message = action.payload.status.message;
       })
       .addCase(getUserSignup.pending, (state) => {
         state.isLoading = true;
       })
       .addCase(getUserSignup.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.user = action.payload;
+        state.user = null;
         state.message = action.payload.status.message;
       })
       .addCase(getUserSignup.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
-      })
-      .addCase(logoutUser.pending, (state) => {
-        state.isLoading = true;
-      })
-      .addCase(logoutUser.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.user = null;
         state.message = action.payload.status.message;
       })
-      .addCase(logoutUser.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
+      .addCase(logoutUser.fulfilled, (state, action) => {
+        state.user = null;
+        state.message = action.payload.message;
       });
   },
 });

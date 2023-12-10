@@ -28,7 +28,7 @@ const Layout = () => {
       <header>
         <Header />
         {user && <h3 className="text-blue-600 font-bold text-xl">{`Welcome, ${user.name}!`}</h3>}
-        {message && <p className="text-green-500">{message}</p>}
+        {message && <p className="text-purple-500">{message}</p>}
       </header>
 
       <main>
