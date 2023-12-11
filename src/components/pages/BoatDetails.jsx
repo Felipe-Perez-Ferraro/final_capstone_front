@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const BoatDetails = () => (
+const BoatDetails = () => (
   <div>Boat Details</div>
 );
 

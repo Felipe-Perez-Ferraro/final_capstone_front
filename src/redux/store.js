@@ -1,7 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
+import usersessionReducer from './usersession/usersessionsSlice';
 
 const store = configureStore({
-  reducer: {},
+  reducer: {
+    usersession: usersessionReducer,
+  },
 });
 
 export default store;
