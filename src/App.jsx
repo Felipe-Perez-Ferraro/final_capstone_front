@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import Boats from './components/pages/Boats';
 import BoatDetails from './components/pages/BoatDetails';
-import Reservations from './components/pages/Reservations';
+import MyReservations from './components/pages/MyReservations';
 import Login from './components/pages/Login';
 import Signup from './components/pages/Signup';
 
@@ -16,7 +16,7 @@ const App = () => (
         <Route path="signup" element={<Signup />} />
         <Route path="boats" element={<Boats />} />
         <Route path="boats/boatdetails" element={<BoatDetails />} />
-        <Route path="reservations" element={<Reservations />} />
+        <Route path="my-reservations" element={<MyReservations />} />
       </Route>
     </Routes>
   </Router>
