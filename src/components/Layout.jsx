@@ -25,13 +25,13 @@ const Layout = () => {
 
   return (
     <>
-      <header>
+      <header className="lg:fixed lg:left-0 lg:top-0 lg:bottom-0 lg:w-[20%] lg:border-r-2 lg:border-red-100">
         <Header />
-        {user && <h3 className="text-blue-600 font-bold text-xl">{`Welcome, ${user.name}!`}</h3>}
-        {message && <p className="text-purple-500">{message}</p>}
       </header>
 
-      <main>
+      <main className="lg:ml-[20%]">
+        {user && <h3 className="text-blue-600 font-bold text-xl">{`Welcome, ${user.name}!`}</h3>}
+        {message && <p className="text-purple-500">{message}</p>}
         <Outlet />
       </main>
     </>
