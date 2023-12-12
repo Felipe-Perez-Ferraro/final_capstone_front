@@ -88,7 +88,7 @@ function Reserve() {
               <select
                 name="boatId"
                 value={boat_id || ''}
-                className="border border-white p-1 text-lime-700 font-semibold rounded outline-none bg-white w-full lg:w-40"
+                className="border border-white p-1 text-lime-700 font-semibold rounded outline-none bg-white w-full lg:w-56"
                 required
                 onChange={(e) => {
                   setBoatId(parseInt(e.target.value, 10) || undefined);
