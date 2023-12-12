@@ -12,6 +12,7 @@ function Reserve() {
   const [date, setDate] = useState('');
   const [boat_id, setBoatId] = useState(undefined);
   const dispatch = useDispatch();
+  console.log(boats.data);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -93,20 +94,25 @@ function Reserve() {
               }}
             >
               <option value="">Select a Boat</option>
-              {boats.map((boat) => (
-                <option key={boat.id} value={boat.id}>
-                  {boat.name}
-                  {' '}
-                  - Rent Price:
-                  {' '}
-                  $
-                  {boat.rent_price}
-                </option>
-              ))}
+              {boats.data
+                ? boats.data.map((boat) => (
+                  <option key={boat.id} value={boat.id}>
+                    {boat.name}
+                    {' '}
+                    - Rent Price: $
+                    {boat.rent_price}
+                  </option>
+                ))
+                : 'Not load'}
             </select>
           </div>
           <div className="flex justify-center">
-            <button type="submit" className="border-white rounded py-1 px-2 bg-orange-500 font-bold text-white text-lg">Reserve Now</button>
+            <button
+              type="submit"
+              className="border-white rounded py-1 px-2 bg-orange-500 font-bold text-white text-lg"
+            >
+              Reserve Now
+            </button>
           </div>
         </form>
       </article>
