@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FaTwitter, FaFacebook, FaGooglePlus } from 'react-icons/fa';
 import {
-  deleteBoat,
   fetchBoats,
   selectAllBoats,
 } from '../../redux/boats/boatsSlice';
@@ -25,11 +24,6 @@ const Boats = () => {
     : [];
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
-  const handleClick = (id) => {
-    dispatch(deleteBoat(id));
-    dispatch(fetchBoats());
-  };
 
   return (
     <section className="my-6 flex flex-col items-center lg:mb-20">
@@ -76,15 +70,6 @@ const Boats = () => {
                 ********************
               </p>
               <p className="text-center mb-6">{boat.description}</p>
-              <div className="flex justify-center mb-6">
-                <button
-                  type="button"
-                  onClick={() => handleClick(boat.id)}
-                  className="bg-red-600 py-1 rounded w-16 text-center text-white font-semibold hover:bg-red-800"
-                >
-                  Delete
-                </button>
-              </div>
               <div className="flex justify-center gap-10">
                 <FaTwitter />
                 <FaFacebook />
