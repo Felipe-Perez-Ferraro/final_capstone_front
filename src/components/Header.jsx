@@ -93,6 +93,15 @@ const Header = () => {
                 </NavLink>
               </li>
             ))}
+            {user && (
+              <li className="text-center py-3">
+                Hi
+                {' '}
+                {user.name}
+                {' | '}
+                <Logout />
+              </li>
+            )}
           </ul>
 
           <div className="pb-6">
@@ -157,7 +166,12 @@ const Header = () => {
               </li>
             ))}
             {user && (
-              <li className="text-center py-3">
+              <li className="text-center py-6">
+                Hi
+                {' '}
+                {user.name}
+                !
+                {' | '}
                 <Logout />
               </li>
             )}
