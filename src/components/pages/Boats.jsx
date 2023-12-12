@@ -2,7 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FaTwitter, FaFacebook, FaGooglePlus } from 'react-icons/fa';
-import { fetchBoats, selectAllBoats } from '../../redux/boats/boatsSlice';
+import {
+  fetchBoats,
+  selectAllBoats,
+} from '../../redux/boats/boatsSlice';
 
 const Boats = () => {
   const dispatch = useDispatch();
@@ -16,43 +19,64 @@ const Boats = () => {
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = Array.isArray(boats) ? boats.slice(indexOfFirstItem, indexOfLastItem) : [];
+  const currentItems = Array.isArray(boats)
+    ? boats.slice(indexOfFirstItem, indexOfLastItem)
+    : [];
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <section className="mx-4 my-6 flex flex-col items-center lg:mb-20">
-      <h2 className="text-center text-2xl font-black my-4 lg:text-3xl lg:my-10 uppercase">All Boat Models</h2>
+    <section className="my-6 flex flex-col items-center lg:mb-20">
+      <h2 className="text-center text-2xl font-black my-4 lg:text-3xl lg:my-10 uppercase">
+        All Boat Models
+      </h2>
 
       <h4 className="text-center">Please select one to Reserve</h4>
 
       <p className="text-gray-300 my-6">********************</p>
 
-      <div className="flex flex-col gap-10 p-2 lg:grid lg:grid-cols-11">
+      {boats.length === 0 && (
+        <>
+          <h1 className="font-semibold text-2xl">
+            There are no boats yet. Please create one.
+          </h1>
+        </>
+      )}
+
+      <div className="flex flex-col gap-10 lg:grid lg:grid-cols-11 w-full">
         <button
           onClick={() => paginate(currentPage - 1)}
           disabled={currentPage === 1}
           type="button"
-          className="font-bold text-2xl bg-lime-500 pl-10 pr-4 py-2 rounded-r-3xl text-white hidden lg:block lg:h-14 lg:self-center lg:col-span-1"
+          className="font-bold text-2xl bg-lime-500 pl-10 pr-10 py-2 rounded-r-3xl text-white hidden lg:block lg:h-14 lg:self-center lg:col-span-1"
         >
           {'<'}
         </button>
 
-        {currentItems.map((boat) => (
-          <div key={boat.id} className="lg:col-span-3">
-            <Link to={`/boats/${boat.id}`} className="block">
-              <img src={boat.picture} alt={boat.name} className="object-contain rounded-md" />
-            </Link>
-            <h3 className="text-center text-xl font-bold my-4">{boat.name}</h3>
-            <p className="text-gray-300 mb-4 text-center">********************</p>
-            <p className="text-center mb-6">{boat.description}</p>
-            <div className="flex justify-center gap-10">
-              <FaTwitter />
-              <FaFacebook />
-              <FaGooglePlus />
+        {boats.length > 0
+          && currentItems.map((boat) => (
+            <div key={boat.id} className="max-w-md mx-auto lg:col-span-3 p-12 lg:p-4">
+              <Link to={`/boats/${boat.id}`} className="block">
+                <img
+                  src={boat.picture}
+                  alt={boat.name}
+                  className="object-contain rounded-md w-full"
+                />
+              </Link>
+              <h3 className="text-center text-xl font-bold my-4">
+                {boat.name}
+              </h3>
+              <p className="text-gray-300 mb-4 text-center">
+                ********************
+              </p>
+              <p className="text-center mb-6">{boat.description}</p>
+              <div className="flex justify-center gap-10">
+                <FaTwitter />
+                <FaFacebook />
+                <FaGooglePlus />
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
 
         <button
           onClick={() => paginate(currentPage + 1)}

@@ -16,8 +16,6 @@ const Login = () => {
       return;
     }
     try {
-      console.log('Submitting form');
-      console.log(`Name: ${name}`);
       await dispatch(getUserLogin({ name })).unwrap();
       setName('');
       navigate('/boats');
