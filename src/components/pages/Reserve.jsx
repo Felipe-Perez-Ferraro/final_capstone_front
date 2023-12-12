@@ -27,7 +27,7 @@ function Reserve() {
 
     Swal.fire({
       icon: 'success',
-      title: 'Boat Created Successfully',
+      title: 'Boat Reserved Successfully',
       text: 'Your reservation has been successfully created.',
     });
 
@@ -47,75 +47,77 @@ function Reserve() {
   }, []);
 
   return (
-    <section className="h-full lg:flex lg:justify-center lg:items-center bg-green-700 py-7">
-      <article className="overlay mx-auto max-w-xs sm:max-w-md lg:max-w-4xl">
-        <form onSubmit={handleSubmit} className="flex flex-col">
-          <div className="flex flex-col gap-y-2 lg:flex-row lg:gap-x-2 mb-6">
-            <input
-              type="text"
-              name="username"
-              value={username}
-              placeholder="Username"
-              required
-              className="border border-slate-200 p-1 text-slate-600 font-semibold rounded outline-none"
-              onChange={(e) => {
-                setUsername(e.target.value);
-              }}
-            />
-            <input
-              type="text"
-              name="city"
-              value={city}
-              placeholder="City"
-              required
-              className="border border-slate-200 p-1 text-slate-600 font-semibold rounded outline-none"
-              onChange={(e) => {
-                setCity(e.target.value);
-              }}
-            />
-            <input
-              type="date"
-              name="date"
-              value={date}
-              placeholder=""
-              required
-              className="border border-slate-200 p-1 text-slate-600 font-semibold rounded outline-none"
-              onChange={(e) => {
-                setDate(e.target.value);
-              }}
-            />
-            <select
-              name="boatId"
-              value={boat_id || ''}
-              className="border border-slate-200 p-1 text-slate-600 font-semibold rounded outline-none"
-              required
-              onChange={(e) => {
-                setBoatId(parseInt(e.target.value, 10) || undefined);
-              }}
-            >
-              <option value="">Select a Boat</option>
-              {boats.data
-                ? boats.data.map((boat) => (
-                  <option key={boat.id} value={boat.id}>
-                    {boat.name}
-                    {' '}
-                    - Rent Price: $
-                    {boat.rent_price}
-                  </option>
-                ))
-                : 'Not load'}
-            </select>
-          </div>
-          <div className="flex justify-center">
-            <button
-              type="submit"
-              className="border-white rounded py-1 px-2 bg-orange-500 font-bold text-white text-lg"
-            >
-              Reserve Now
-            </button>
-          </div>
-        </form>
-      </article>
+    <section className="image h-full">
+      <div className="h-full overlay lg:flex lg:justify-center lg:items-center">
+        <article className="mx-auto max-w-xs sm:max-w-md lg:max-w-4xl py-6">
+          <form onSubmit={handleSubmit} className="flex flex-col">
+            <div className="flex flex-col gap-y-2 lg:flex-row lg:gap-x-2 mb-6">
+              <input
+                type="text"
+                name="username"
+                value={username}
+                placeholder="Username"
+                required
+                className="border border-white p-1 text-lime-700 font-semibold rounded outline-none bg-white w-full lg:w-40"
+                onChange={(e) => {
+                  setUsername(e.target.value);
+                }}
+              />
+              <input
+                type="text"
+                name="city"
+                value={city}
+                placeholder="City"
+                required
+                className="border border-white p-1 text-lime-700 font-semibold rounded outline-none bg-white w-full lg:w-40"
+                onChange={(e) => {
+                  setCity(e.target.value);
+                }}
+              />
+              <input
+                type="date"
+                name="date"
+                value={date}
+                placeholder=""
+                required
+                className="border border-white p-1 text-lime-700 font-semibold rounded outline-none bg-white w-full lg:w-40"
+                onChange={(e) => {
+                  setDate(e.target.value);
+                }}
+              />
+              <select
+                name="boatId"
+                value={boat_id || ''}
+                className="border border-white p-1 text-lime-700 font-semibold rounded outline-none bg-white w-full lg:w-40"
+                required
+                onChange={(e) => {
+                  setBoatId(parseInt(e.target.value, 10) || undefined);
+                }}
+              >
+                <option value="">Select a Boat</option>
+                {boats.data
+                  ? boats.data.map((boat) => (
+                    <option key={boat.id} value={boat.id}>
+                      {boat.name}
+                      {' '}
+                      - Rent Price: $
+                      {boat.rent_price}
+                    </option>
+                  ))
+                  : 'Not load'}
+              </select>
+            </div>
+            <div className="flex justify-center">
+              <button
+                type="submit"
+                className="border-white rounded-lg py-2 px-6 bg-white font-bold text-lime-600 text-md hover:bg-orange-600 hover:border-orange-600 hover:text-white transition ease-in delay-75"
+              >
+                Reserve Now
+              </button>
+            </div>
+          </form>
+        </article>
+      </div>
     </section>
   );
 }
