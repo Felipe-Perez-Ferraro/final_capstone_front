@@ -28,7 +28,7 @@ const Boats = () => {
 
       <p className="text-gray-300 my-6">********************</p>
 
-      <div className="flex flex-col gap-10 p-2 lg:grid lg:grid-cols-11">
+      <div className="flex flex-col gap-10 p-2 lg:grid lg:grid-cols-11 w-full">
         <button
           onClick={() => paginate(currentPage - 1)}
           disabled={currentPage === 1}
