@@ -29,7 +29,7 @@ const Layout = () => {
         <Header />
       </header>
 
-      <main className="lg:ml-[20%]">
+      <main className="lg:ml-[20%] lg:flex lg:items-center lg:h-screen">
         {user && <h3 className="text-blue-600 font-bold text-xl">{`Welcome, ${user.name}!`}</h3>}
         {message && <p className="text-purple-500">{message}</p>}
         <Outlet />

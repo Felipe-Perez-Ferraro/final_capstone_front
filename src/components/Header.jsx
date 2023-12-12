@@ -45,7 +45,7 @@ const Header = () => {
             <h2 className="font-bold text-2xl mr-10">Boat Logo</h2>
           </div>
 
-          <ul className="flex flex-col text-2xl font-bold items-center mb-[150px]">
+          <ul className="flex flex-col text-xl font-bold items-center mb-[150px] uppercase">
             {links.map(({ path, text }) => (
               <li key={text} className="w-full">
                 <NavLink to={path} onClick={() => setIsOpen(false)} className="w-full block text-center py-4">
@@ -82,8 +82,8 @@ const Header = () => {
       <section className="hidden lg:flex flex-col justify-between h-full pb-6">
         <h2 className="font-bold text-2xl text-center mt-10">Boat Logo</h2>
 
-        <nav className="mb-[200px]">
-          <ul className="hidden lg:flex flex-col text-2xl m-0 font-bold">
+        <nav className="mb-[200px] uppercase">
+          <ul className="hidden lg:flex flex-col text-xl m-0 font-bold">
             {links.map(({ path, text }) => (
               <li key={text}>
                 <NavLink to={path} className="block text-center py-3">
@@ -100,7 +100,7 @@ const Header = () => {
         </nav>
 
         <div>
-          <div className="flex justify-center space-x-8 py-6">
+          <div className="flex justify-center space-x-4 py-6">
             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
               <FaTwitter />
             </a>
