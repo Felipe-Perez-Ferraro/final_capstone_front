@@ -21,7 +21,7 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="p-4 h-full">
+    <header className="p-4 h-full border-b border-slate-300">
       {/* Mobile */}
       <section className="lg:hidden">
         <div className="flex justify-between">
