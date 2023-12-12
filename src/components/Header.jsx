@@ -100,7 +100,7 @@ const Header = () => {
         </nav>
 
         <div>
-          <div className="flex justify-center space-x-8 py-6">
+          <div className="flex justify-center space-x-4 py-6">
             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
               <FaTwitter />
             </a>
