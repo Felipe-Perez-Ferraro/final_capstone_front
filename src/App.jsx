@@ -1,5 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router, Routes, Route, Navigate,
+} from 'react-router-dom';
 import Layout from './components/Layout';
 import Boats from './components/pages/Boats';
 import BoatDetails from './components/pages/BoatDetails';
@@ -12,7 +14,7 @@ const App = () => (
   <Router>
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<Boats />} />
+        <Route index element={<Navigate to="/boats" />} />
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<Signup />} />
         <Route path="boats" element={<Boats />} />
