@@ -54,19 +54,19 @@ const Boats = () => {
           onClick={() => paginate(currentPage - 1)}
           disabled={currentPage === 1}
           type="button"
-          className="font-bold text-2xl bg-lime-500 pl-10 pr-4 py-2 rounded-r-3xl text-white hidden lg:block lg:h-14 lg:self-center lg:col-span-1"
+          className="font-bold text-2xl bg-lime-500 pl-10 pr-10 py-2 rounded-r-3xl text-white hidden lg:block lg:h-14 lg:self-center lg:col-span-1"
         >
           {'<'}
         </button>
 
         {boats.length > 0
           && currentItems.map((boat) => (
-            <div key={boat.id} className="lg:col-span-3 p-12 lg:p-8">
+            <div key={boat.id} className="max-w-md mx-auto lg:col-span-3 p-12 lg:p-4">
               <Link to={`/boats/${boat.id}`} className="block">
                 <img
                   src={boat.picture}
                   alt={boat.name}
-                  className="object-contain rounded-md"
+                  className="object-contain rounded-md w-full"
                 />
               </Link>
               <h3 className="text-center text-xl font-bold my-4">
