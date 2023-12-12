@@ -76,7 +76,7 @@ const Boats = () => {
                 ********************
               </p>
               <p className="text-center mb-6">{boat.description}</p>
-              <div className="flex justify-center gap-x-2 mb-6">
+              <div className="flex justify-center mb-6">
                 <button
                   type="button"
                   onClick={() => handleClick(boat.id)}
@@ -84,12 +84,6 @@ const Boats = () => {
                 >
                   Delete
                 </button>
-                <Link
-                  to="/reserve"
-                  className="bg-orange-500 py-1 rounded w-16 text-center text-white font-semibold hover:bg-orange-600"
-                >
-                  Reserve
-                </Link>
               </div>
               <div className="flex justify-center gap-10">
                 <FaTwitter />
