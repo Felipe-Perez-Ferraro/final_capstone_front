@@ -12,10 +12,22 @@ body {
 }
 
 .active {
-  background-color: yellowgreen;
+  background-color: rgb(154, 205, 50);
   color: #fff;
 }
 
 a {
   cursor: pointer;
+}
+
+.image {
+  background-image: url('https://stylesatlife.com/wp-content/uploads/2022/07/Sail-boats.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.overlay {
+  background-color: rgba(125, 166, 45, 0.8);
+  width: 100%;
+  height: 100%;
 }
