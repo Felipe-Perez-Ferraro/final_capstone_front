@@ -10,7 +10,7 @@ function Reserve() {
   const [username, setUsername] = useState(user.name);
   const [city, setCity] = useState('');
   const [date, setDate] = useState('');
-  const [boat_id, setBoatId] = useState(undefined);
+  const [boatId, setBoatId] = useState(undefined);
   const dispatch = useDispatch();
   console.log(boats.data);
 
@@ -21,7 +21,7 @@ function Reserve() {
         username,
         city,
         date,
-        boat_id,
+        boat_id: boatId,
       }),
     );
 
@@ -48,7 +48,13 @@ function Reserve() {
 
   return (
     <section className="image h-full">
-      <div className="h-full overlay lg:flex lg:justify-center lg:items-center">
+      <div className="h-full overlay lg:flex lg:flex-col lg:justify-center lg:items-center">
+        <h2 className="text-white text-2xl font-black lg:text-3xl uppercase mb-3">
+          Reserve a Boat Trip
+        </h2>
+        <p className="text-white font-semibold mb-3">
+          Complete All fields to reserve a boat trip.
+        </p>
         <article className="mx-auto max-w-xs sm:max-w-md lg:max-w-4xl py-6">
           <form onSubmit={handleSubmit} className="flex flex-col">
             <div className="flex flex-col gap-y-2 lg:flex-row lg:gap-x-2 mb-6">
@@ -87,7 +93,7 @@ function Reserve() {
               />
               <select
                 name="boatId"
-                value={boat_id || ''}
+                value={boatId || ''}
                 className="border border-white p-1 text-lime-700 font-semibold rounded outline-none bg-white w-full lg:w-56"
                 required
                 onChange={(e) => {
