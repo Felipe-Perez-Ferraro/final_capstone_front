@@ -6,7 +6,6 @@ function DeleteBoat() {
   const dispatch = useDispatch();
   const boats = useSelector(selectAllBoats);
   const currentItems = Array.isArray(boats);
-  console.log(currentItems);
 
   useEffect(() => {
     dispatch(fetchBoats());

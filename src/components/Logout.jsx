@@ -7,7 +7,6 @@ const Logout = () => {
 
   const handleLogout = () => {
     dispatch(logoutUser());
-    console.log('Logging out');
   };
 
   return (

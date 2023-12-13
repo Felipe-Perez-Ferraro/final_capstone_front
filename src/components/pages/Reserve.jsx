@@ -12,7 +12,6 @@ function Reserve() {
   const [date, setDate] = useState('');
   const [boatId, setBoatId] = useState(undefined);
   const dispatch = useDispatch();
-  console.log(boats.data);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
