@@ -21,6 +21,7 @@ export const getUserLogin = createAsyncThunk(
           },
         },
       );
+      console.log(response.data);
       localStorage.setItem('user', JSON.stringify(response.data.status.data.user));
       return response.data;
     } catch (error) {
