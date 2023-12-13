@@ -49,10 +49,10 @@ function Reserve() {
   return (
     <section className="image h-full">
       <div className="h-full overlay lg:flex lg:flex-col lg:justify-center lg:items-center">
-        <h2 className="text-white text-2xl font-black lg:text-3xl uppercase mb-3">
+        <h2 className="text-white text-center text-2xl font-black lg:text-3xl uppercase py-6">
           Reserve a Boat Trip
         </h2>
-        <p className="text-white font-semibold mb-3">
+        <p className="text-white font-semibold mb-3 text-center">
           Complete All fields to reserve a boat trip.
         </p>
         <article className="mx-auto max-w-xs sm:max-w-md lg:max-w-4xl py-6">
