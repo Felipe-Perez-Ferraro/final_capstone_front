@@ -2,15 +2,19 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getReservations } from '../../redux/reservations/reservationsSlice';
 import { selectUser } from '../../redux/usersession/usersessionsSlice';
+import { fetchBoats, selectAllBoats } from '../../redux/boats/boatsSlice';
 
 function MyReservations() {
   const { reservations } = useSelector((state) => state.reservations);
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
   const userReservations = reservations.filter((e) => e.username === user.name);
+  const boats = useSelector(selectAllBoats);
+  console.log(boats);
 
   useEffect(() => {
     dispatch(getReservations());
+    dispatch(fetchBoats());
   }, [dispatch]);
 
   return (
@@ -34,7 +38,7 @@ function MyReservations() {
                 !
                 You reserved
                 {' '}
-                {re.boat.name}
+                {boats.find(({ id }) => id === re.boat_id).name}
                 .
               </h2>
               <p className="text-lg font-semibold">
