@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
 const initialState = {
     boatDetails: [],
@@ -11,9 +12,8 @@ export const getBoatDetails = createAsyncThunk(
     "boatDetails/getBoatDetails",
     async (id, thunkAPI) => {
         try {
-            const response = await fetch(`http://localhost:3001/boats/${id}`);
-            const data = await response.json();
-            return data;
+            const response = await axios.get(`http://localhost:3001/api/v1/boats/${id}`);
+            return response.data.data
         } catch (error) {
             return thunkAPI.rejectWithValue(error.response.data);
         }
@@ -24,18 +24,25 @@ const boatDetailsSlice = createSlice({
     name: "boatDetails",
     initialState,
     reducers: {},
-    extraReducers: {
-        [getBoatDetails.pending]: (state) => {
+    extraReducers: (builder) => {
+        builder.addCase(getBoatDetails.pending, (state, action) => {
             state.isLoading = true;
-        },
-        [getBoatDetails.fulfilled]: (state, action) => {
+        }
+        ),
+        builder.addCase(getBoatDetails.fulfilled, (state, action) => {
+            state.isLoading = false;
             state.boatDetails = action.payload;
+        }
+        ),
+        builder.addCase(getBoatDetails.rejected, (state, action) => {
             state.isLoading = false;
-        },
-        [getBoatDetails.rejected]: (state, action) => {
             state.error = action.payload;
+        }
+        ),
+        builder.addDefaultCase((state, action) => {
             state.isLoading = false;
-        },
+        }
+        )
     },
 });
 
