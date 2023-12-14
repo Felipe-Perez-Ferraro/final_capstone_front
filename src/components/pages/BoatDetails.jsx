@@ -1,27 +1,36 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { selectUser } from '../../redux/usersession/usersessionsSlice';
+import { useDispatch ,useSelector } from 'react-redux';
+import { getBoatDetails } from '../../redux/boatDetails/boatDetailsSlice';
+import { useEffect } from 'react';
 
 
 const BoatDetails = () => {
-
-  const user2 = useSelector(selectUser);
-
-  console.log("El usuario es: ", user2.id);
-  // const user = JSON.parse(localStorage.getItem('user'));
-
-  // console.log("El usuario es: ", user.id);
-
+  const boatDetailsState = useSelector((state) => state.boatDetails);
+  const dispatch = useDispatch();
   const idBoat = useParams();
 
-  console.log("El id del barco es: ", idBoat.id);
+  console.log("Estado de boatDetails:", boatDetailsState);
+  const boat = boatDetailsState.boatDetails;
+
+  useEffect(() => {
+    dispatch(getBoatDetails(idBoat.id));
+  }, [dispatch]);
+
 
   return (
     <div>
-      <h1>BoatDetails</h1>
+      <h1>Boat Details</h1>
+      <div>
+        <h2>{boat.name}</h2>
+        <p>{boat.description}</p>
+        <p>{boat.price}</p>
+        <p>{boat.city}</p>
+        <img src={boat.picture} alt="boat" />
+      </div>
     </div>
   );
 }
 
 export default BoatDetails;
+
