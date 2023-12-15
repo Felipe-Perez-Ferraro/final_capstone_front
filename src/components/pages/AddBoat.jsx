@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createBoat } from './../../redux/boats/boatsSlice';
 import { selectUser } from '../../redux/usersession/usersessionsSlice';
+import { useSelector } from 'react-redux';
 
 const AddBoat = () => {
     const dispatch = useDispatch();
