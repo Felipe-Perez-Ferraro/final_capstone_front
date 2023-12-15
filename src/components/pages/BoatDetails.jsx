@@ -62,25 +62,26 @@ const BoatDetails = () => {
 
           {/* Reserve Now button */}
           <div className="reserve-btn flex justify-center pt-8">
-            <button
-              type="button"
+            <a
+              href='/reserve'
               className="font-semibold text-2xl bg-lime-500 px-8 py-5 rounded-full text-gray-100 absolute bottom-2 right-1 
               md:flex md:justify-between md:bottom-20 md:right-20
               lg:absolute-flex lg:justify-center"
             >
               <span>Reserve</span>
               <span className="text-xl ml-4">&#10148;</span>
-            </button>
+            </a>
           </div>
 
         </div>
       </div>
-      <button
+      <a
         type="button"
+        href="/boats"
         className="font-bold text-3xl bg-lime-500 pl-10 pr-4 py-5 rounded-r-3xl text-white flex justify-end absolute bottom-2"
       >
         {'<'}
-      </button>
+      </a>
     </div>
   );
   
