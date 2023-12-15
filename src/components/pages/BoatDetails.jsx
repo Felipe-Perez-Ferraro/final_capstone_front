@@ -10,8 +10,9 @@ const BoatDetails = () => {
   const dispatch = useDispatch();
   const idBoat = useParams();
 
-  console.log("Estado de boatDetails:", boatDetailsState);
   const boat = boatDetailsState.boatDetails;
+
+  const boatName = boat.name;
 
   useEffect(() => {
     dispatch(getBoatDetails(idBoat.id));
@@ -19,47 +20,70 @@ const BoatDetails = () => {
 
 
   return (
-    <div class="detail-container p-4">
-    <h1 class="text-2xl font-bold mb-4">{boat.name}</h1>
-    <div class="main-info flex flex-col md:flex-row items-center">
-        <img class="w-full md:w-1/2 mb-4 md:mb-0 md:mr-4" src={boat.picture} alt="boat"/>
-        <div class="md:w-1/2">
-            <div class="finance mb-4">
-                <p class="mb-2">$400 deposit upon any Vespa Purchase!</p>
-                <div class="mb-4">
-                    <table class="table-auto">
-                        <tr>
-                            <td class="pr-4">Finance fee</td>
-                            <td>${129}</td>
-                        </tr>
-                        <tr>
-                            <td class="pr-4">Option to purchase fee</td>
-                            <td>${249}</td>
-                        </tr>
-                        <tr>
-                            <td class="pr-4">Total amount payable</td>
-                            <td>${9879}</td>
-                        </tr>
-                        <tr>
-                            <td class="pr-4">Duration</td>
-                            <td>48 Months</td>
-                        </tr>
-                    </table>
-                </div>
-                <p class="mb-2">5.9% APR Representative</p>
-                <button class="bg-blue-500 text-white px-4 py-2 rounded">Buy it</button>
-            </div>
-            <div class="reserve">
-                <p class="mb-2">Reserve for $99</p>
-                <p class="mb-2">Reserve this boat for just $350. We will call you to arrange the rest!</p>
-                <button class="bg-green-500 text-white px-4 py-2 rounded">Reserve</button>
-            </div>
+    <div className="h-full w-full relative flex flex-col lg:justify-center">
+      <div className="md flex p-5 justify-center  md:mb-18 lg:justify-end mr-6 ">
+        <h1 className="text-3xl font-medium text-black-100 uppercase">
+          {boatName}
+        </h1>
+      </div>
+      <div className="md:flex md:mt-30 ">
+        <div className="imagen w-full p-1 rounded md:p-8 lg:h-full flex justify-center ">
+          <img
+              className="flex justify-center w-4/5 object-contain sm:object-fill rounded-full"
+              src={boat.picture}
+              alt="boat"
+            />
         </div>
-    </div>
-    <button class="bg-gray-500 text-white px-4 py-2 rounded self-end">Back</button>
-</div>
+        <div className="boat-details-container h-3/5 md:h-full md:w-1/2 p-8 bg-white rounded-lg">
 
+          {/* Description */}
+          <div className="details-section mb-4 bg-gray-100 p-4 rounded">
+            <h2 className="section-title text-lg font-bold text-gray-600">Description</h2>
+            <p className="text-gray-500 ml-6 mt-2">{boat.description}</p>
+          </div>
+
+          {/* Color */}
+          <div className="details-section mb-4 bg-gray-100 p-4 rounded">
+            <h2 className="section-title text-lg font-bold text-gray-600">Color</h2>
+            <p className="text-gray-500 ml-6 mt-2">{boat.color}</p>
+          </div>
+
+          {/* Rent per day */}
+          <div className="details-section mb-4 bg-gray-100 p-4 rounded">
+            <h2 className="section-title text-lg font-bold text-gray-600">Rent per day</h2>
+            <p className="text-gray-500 ml-6 mt-2">${boat.rent_price}</p>
+          </div>
+
+          {/* Full Purchase Price */}
+          <div className="details-section mb-4 bg-gray-100 p-4 rounded">
+            <h2 className="section-title text-lg font-bold text-gray-600">Full Purchase Price</h2>
+            <p className="text-gray-500 ml-6 mt-2">${boat.price}</p>
+          </div>
+
+          {/* Reserve Now button */}
+          <div className="reserve-btn flex justify-center pt-8">
+            <button
+              type="button"
+              className="font-semibold text-2xl bg-lime-500 px-8 py-5 rounded-full text-gray-100 absolute bottom-2 right-1 
+              md:flex md:justify-between md:bottom-20 md:right-20
+              lg:absolute-flex lg:justify-center"
+            >
+              <span>Reserve</span>
+              <span className="text-xl ml-4">&#10148;</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+      <button
+        type="button"
+        className="font-bold text-3xl bg-lime-500 pl-10 pr-4 py-5 rounded-r-3xl text-white flex justify-end absolute bottom-2"
+      >
+        {'<'}
+      </button>
+    </div>
   );
+  
 }
 
 export default BoatDetails;
