@@ -17,7 +17,7 @@ const BoatDetails = () => {
   }, [dispatch]);
 
   return (
-    <div className="h-full w-full relative flex flex-col lg:justify-center">
+    <section className="h-full w-full flex flex-col lg:justify-center">
       <div className="md flex p-5 justify-center  md:mb-18 lg:justify-end mr-6 ">
         <h1 className="text-3xl font-medium text-black-100 uppercase">
           {boatName}
@@ -85,7 +85,7 @@ const BoatDetails = () => {
       >
         {'<'}
       </a>
-    </div>
+    </section>
   );
 };
 
