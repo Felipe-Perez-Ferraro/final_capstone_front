@@ -49,7 +49,7 @@ const Login = () => {
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="border-2 border-black rounded-md ml-2 w-[70%]"
+            className="border-2 border-black rounded-md ml-2 w-[70%] pl-2"
           />
         </label>
         <button type="submit" className="border-2 border-lime-400 bg-lime-400 rounded px-4 py-2 w-32 self-center my-10">Login</button>
