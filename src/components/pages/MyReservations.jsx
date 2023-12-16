@@ -10,7 +10,6 @@ function MyReservations() {
   const dispatch = useDispatch();
   const userReservations = reservations.filter((e) => e.username === user?.name);
   const boats = useSelector(selectAllBoats);
-  console.log(boats);
 
   useEffect(() => {
     dispatch(getReservations());
