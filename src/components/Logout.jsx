@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import Swal from 'sweetalert2';
 import { logoutUser } from '../redux/usersession/usersessionsSlice';
 
 const Logout = () => {
@@ -7,11 +8,15 @@ const Logout = () => {
 
   const handleLogout = () => {
     dispatch(logoutUser());
-    console.log('Logging out');
+    Swal.fire({
+      title: 'Logout Successful',
+      text: 'You have successfully logged out',
+      icon: 'success',
+    });
   };
 
   return (
-    <button type="button" onClick={handleLogout}>
+    <button type="button" onClick={handleLogout} className="uppercase">
       Logout
     </button>
   );
