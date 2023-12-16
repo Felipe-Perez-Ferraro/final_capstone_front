@@ -26,7 +26,7 @@ const Boats = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <section className="my-6 flex flex-col items-center lg:mb-20">
+    <section className="my-6 flex flex-col items-center lg:mt-[6%]">
       <h2 className="text-center text-2xl font-black my-4 lg:text-3xl lg:my-10 uppercase">
         All Boat Models
       </h2>
@@ -71,9 +71,30 @@ const Boats = () => {
               </p>
               <p className="text-center mb-6">{boat.description}</p>
               <div className="flex justify-center gap-10">
-                <FaTwitter />
-                <FaFacebook />
-                <FaGooglePlus />
+                <a
+                  href="https://twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Twitter"
+                >
+                  <FaTwitter />
+                </a>
+                <a
+                  href="https://facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                >
+                  <FaFacebook />
+                </a>
+                <a
+                  href="https://plus.google.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Google Plus"
+                >
+                  <FaGooglePlus />
+                </a>
               </div>
             </div>
           ))}
