@@ -13,7 +13,7 @@ const BoatDetails = () => {
   const boat = boatDetailsState.boatDetails;
 
   useEffect(() => {
-    dispatch(getBoatDetails(idBoat));
+    dispatch(getBoatDetails(idBoat.id));
   }, [dispatch]);
 
   return (
