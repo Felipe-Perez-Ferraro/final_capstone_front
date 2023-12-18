@@ -119,7 +119,7 @@ const AddBoat = () => {
             type="submit"
             className="bg-lime-500 text-white px-4 py-2 rounded hover:bg-lime-700 focus:outline-none focus:shadow-outline-blue active:bg-blue-800"
           >
-            Submit
+            Add Boat
           </button>
         </div>
       </form>
