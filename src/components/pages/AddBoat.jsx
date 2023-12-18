@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 import { createBoat } from '../../redux/boats/boatsSlice';
 import { selectUser } from '../../redux/usersession/usersessionsSlice';
 
 const AddBoat = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
+  const navigate = useNavigate();
 
   const [boatData, setBoatData] = useState({
     name: '',
@@ -42,6 +44,7 @@ const AddBoat = () => {
       title: 'Boat Added Successfully',
       text: 'Your boat has been successfully created.',
     });
+    navigate('/boats');
   };
 
   return (
