@@ -150,6 +150,7 @@ To run the project, execute the following command:
 
 - [ ] **Implementing proper Authentication**
 - [ ] **Assigning user roles, like normal user and admin**
+- [ ] **Add payment methods**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
