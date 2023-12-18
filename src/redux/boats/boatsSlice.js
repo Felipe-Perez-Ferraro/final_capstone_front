@@ -37,7 +37,7 @@ export const createBoat = createAsyncThunk(
     } catch (error) {
       throw new Error(error.message || 'Failed to create boat');
     }
-  }
+  },
 );
 
 export const deleteBoat = createAsyncThunk('boat/deleteboat', async (id) => {
@@ -79,7 +79,7 @@ const boatsSlice = createSlice({
       })
       .addCase(createBoat.fulfilled, (state, action) => {
         state.boats.push(action.payload);
-      }); 
+      });
   },
 });
 
