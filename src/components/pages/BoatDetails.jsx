@@ -10,17 +10,15 @@ const BoatDetails = () => {
 
   const boat = boatDetailsState.boatDetails;
 
-  const boatName = boat.name;
-
   useEffect(() => {
-    dispatch(getBoatDetails(idBoat.id));
+    dispatch(getBoatDetails(idBoat));
   }, [dispatch]);
 
   return (
     <section className="h-full w-full flex flex-col justify-between">
       <div className="md flex p-5 justify-center  md:mb-18 lg:justify-end mr-6 ">
         <h1 className="text-3xl font-medium text-black-100 uppercase">
-          {boatName}
+          {boat.name}
         </h1>
       </div>
       <div className="md:flex md:mt-30 ">
