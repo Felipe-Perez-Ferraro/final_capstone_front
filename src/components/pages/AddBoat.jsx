@@ -27,13 +27,6 @@ const AddBoat = () => {
     e.preventDefault();
     dispatch(createBoat(boatData));
     // Clear the form after submission
-
-    Swal.fire({
-      icon: 'success',
-      title: 'Boat Added Successfully',
-      text: 'Your boat has been successfully created.',
-    });
-
     setBoatData({
       name: '',
       description: '',
@@ -42,6 +35,12 @@ const AddBoat = () => {
       rent_price: 0,
       user_id: user.id,
       picture: '',
+    });
+
+    Swal.fire({
+      icon: 'success',
+      title: 'Boat Added Successfully',
+      text: 'Your boat has been successfully created.',
     });
   };
 
@@ -53,6 +52,7 @@ const AddBoat = () => {
           <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
           <input
             type="text"
+            id="name"
             name="name"
             value={boatData.name}
             onChange={handleChange}
@@ -63,6 +63,7 @@ const AddBoat = () => {
           <label htmlFor="description" className="block text-sm font-medium text-gray-700">Description</label>
           <input
             type="text"
+            id="description"
             name="description"
             value={boatData.description}
             onChange={handleChange}
@@ -73,6 +74,7 @@ const AddBoat = () => {
           <label htmlFor="price" className="block text-sm font-medium text-gray-700">Price</label>
           <input
             type="number"
+            id="price"
             name="price"
             value={boatData.price}
             onChange={handleChange}
@@ -83,6 +85,7 @@ const AddBoat = () => {
           <label htmlFor="color" className="block text-sm font-medium text-gray-700">Color</label>
           <input
             type="text"
+            id="color"
             name="color"
             value={boatData.color}
             onChange={handleChange}
@@ -93,6 +96,7 @@ const AddBoat = () => {
           <label htmlFor="rent_price" className="block text-sm font-medium text-gray-700">Rent Price</label>
           <input
             type="number"
+            id="rent_price"
             name="rent_price"
             value={boatData.rent_price}
             onChange={handleChange}
@@ -100,8 +104,9 @@ const AddBoat = () => {
           />
         </div>
         <div>
-          <label htmlFor="picture" className="block text-sm font-medium text-gray-700">Picture</label>
+          <label htmlFor="input-picture" className="block text-sm font-medium text-gray-700">Picture</label>
           <input
+            id="picture"
             type="text"
             name="picture"
             value={boatData.picture}
