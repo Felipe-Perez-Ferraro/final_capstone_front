@@ -16,6 +16,30 @@ export const fetchBoats = createAsyncThunk('boats/fetchBoats', async () => {
   }
 });
 
+export const createBoat = createAsyncThunk(
+  'boat/createBoat',
+  async (boatData) => {
+    try {
+      const response = await fetch('http://localhost:3001/api/v1/boats', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(boatData),
+      });
+
+      if (response.ok) {
+        const boat = await response.json();
+        return boat;
+      }
+      const errorData = await response.json();
+      throw new Error(errorData.message || 'Failed to create boat');
+    } catch (error) {
+      throw new Error(error.message || 'Failed to create boat');
+    }
+  },
+);
+
 export const deleteBoat = createAsyncThunk('boat/deleteboat', async (id) => {
   try {
     const response = await fetch(`http://127.0.0.1:3001/api/v1/boats/${id}`, {
@@ -52,6 +76,9 @@ const boatsSlice = createSlice({
       .addCase(deleteBoat.fulfilled, (state, action) => {
         const boatId = action.payload.id;
         state.boats = state.boats.filter((boat) => boat.id !== boatId);
+      })
+      .addCase(createBoat.fulfilled, (state, action) => {
+        state.boats.push(action.payload);
       });
   },
 });

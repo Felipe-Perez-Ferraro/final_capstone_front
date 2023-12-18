@@ -10,6 +10,7 @@ import Login from './components/pages/Login';
 import Signup from './components/pages/Signup';
 import Reserve from './components/pages/Reserve';
 import DeleteBoat from './components/pages/DeleteBoat';
+import AddBoat from './components/pages/AddBoat';
 
 const App = () => (
   <Router>
@@ -22,7 +23,8 @@ const App = () => (
         <Route path="/delete-boat" element={<DeleteBoat />} />
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<Signup />} />
-        <Route path="boats/boatdetails" element={<BoatDetails />} />
+        <Route path="boats/:id" element={<BoatDetails />} />
+        <Route path="add-boat" element={<AddBoat />} />
       </Route>
     </Routes>
   </Router>
