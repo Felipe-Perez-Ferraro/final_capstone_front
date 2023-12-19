@@ -172,6 +172,6 @@ const AddBoat = () => {
       )}
     </>
   );
-}
+};
 
 export default AddBoat;
