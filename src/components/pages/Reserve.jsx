@@ -7,7 +7,7 @@ import { createReservation } from '../../redux/reservations/reservationsSlice';
 function Reserve() {
   const [boats, setBoats] = useState([]);
   const user = useSelector(selectUser);
-  const [username, setUsername] = useState(user);
+  const [username, setUsername] = useState(user?.name);
   const [city, setCity] = useState('');
   const [date, setDate] = useState('');
   const [boatId, setBoatId] = useState(undefined);
@@ -49,9 +49,9 @@ function Reserve() {
     <>
       {user === null ? (
         <section className="h-full flex justify-center items-center">
-          <article className="flex flex-col gap-4 border border-slate-950 rounded-md p-4">
+          <article className="flex flex-col gap-4 border border-slate-950 rounded-md p-4 mx-auto max-w-xs lg:max-w-lg">
             <h2 className="font-black uppercase text-4xl text-center">Acces Denied</h2>
-            <p>Please Log In first so you can reserve a boat.</p>
+            <p className="text-center text-md">Please Log In first so you can reserve a boat.</p>
           </article>
         </section>
       ) : (
@@ -69,7 +69,7 @@ function Reserve() {
                   <input
                     type="text"
                     name="username"
-                    value={username.name}
+                    value={username}
                     placeholder="Username"
                     required
                     className="border border-white p-1 text-lime-700 font-semibold rounded outline-none bg-white w-full lg:w-40"
