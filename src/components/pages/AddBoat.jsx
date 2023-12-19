@@ -28,7 +28,6 @@ const AddBoat = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(createBoat(boatData));
-    // Clear the form after submission
     setBoatData({
       name: '',
       description: '',
@@ -55,7 +54,7 @@ const AddBoat = () => {
             <h2 className="font-black uppercase text-4xl text-center">
               Acces Denied
             </h2>
-            <p>Please Log In first so you can reserve a boat.</p>
+            <p className="text-center text-md">Please Log In first so you can add a new boat.</p>
           </article>
         </section>
       ) : (
