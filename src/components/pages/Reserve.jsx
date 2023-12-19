@@ -7,11 +7,12 @@ import { createReservation } from '../../redux/reservations/reservationsSlice';
 function Reserve() {
   const [boats, setBoats] = useState([]);
   const user = useSelector(selectUser);
-  const [username, setUsername] = useState(user);
+  const [username, setUsername] = useState(user.name);
   const [city, setCity] = useState('');
   const [date, setDate] = useState('');
   const [boatId, setBoatId] = useState(undefined);
   const dispatch = useDispatch();
+  console.log(user.name);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -69,7 +70,7 @@ function Reserve() {
                   <input
                     type="text"
                     name="username"
-                    value={username.name}
+                    value={username}
                     placeholder="Username"
                     required
                     className="border border-white p-1 text-lime-700 font-semibold rounded outline-none bg-white w-full lg:w-40"
