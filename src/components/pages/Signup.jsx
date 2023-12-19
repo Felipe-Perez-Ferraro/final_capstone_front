@@ -38,7 +38,7 @@ const Signup = () => {
   };
 
   return (
-    <section className="flex flex-col items-center gap-8 m-4 lg:w-full lg:h-screen lg:mt-[10%]">
+    <section className="flex flex-col items-center gap-8 p-4 lg:w-full lg:h-screen lg:pt-[10%]">
       <h2 className="text-center text-2xl font-black uppercase mb-20">Sign up</h2>
 
       <form onSubmit={handleSubmit} className="flex flex-col text-xl">

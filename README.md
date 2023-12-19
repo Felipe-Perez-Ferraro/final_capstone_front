@@ -31,9 +31,9 @@
 
 # 📖 Final Capstone Project Frontend <a name="about-project"></a>
 
-**Reserve Boats** is a website made in Ruby on Rails + Postgresql and React + React Router + Redux where after signing up and logging in, you can book a ride in a boat, add a new boat or delete it!
+**Reserve Boats** is an innovative web platform crafted using a dynamic tech stack that includes Ruby on Rails with Postgresql, coupled with React, React Router, and Redux. Upon seamless registration and login, users gain access to a plethora of features, such as booking boat rides, adding new boats to the inventory, and effortlessly removing them when needed.
 
-The site has a responsive design and uses Tailwind CSS for styling.
+This user-friendly site boasts a responsive design, ensuring a seamless experience across various devices. The aesthetic appeal is enhanced through the implementation of Tailwind CSS, delivering a visually pleasing and intuitive interface. Dive into the world of maritime adventures with Reserve Boats, where simplicity meets functionality."
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -150,6 +150,7 @@ To run the project, execute the following command:
 
 - [ ] **Implementing proper Authentication**
 - [ ] **Assigning user roles, like normal user and admin**
+- [ ] **Add payment methods**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
