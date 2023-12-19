@@ -79,7 +79,7 @@ const Header = () => {
               </svg>
             </button>
 
-            <h2 className="font-bold text-2xl mr-10">Boat Logo</h2>
+            <img src={boatLogo} alt="Boat Logo" className="w-20" />
           </div>
 
           <ul className="flex flex-col text-xl font-bold items-center mb-[150px] uppercase">
@@ -155,7 +155,7 @@ const Header = () => {
 
       {/* Desktop */}
       <section className="hidden lg:flex flex-col justify-between h-full pb-6 border-r-slate-900">
-        <img className="mt-10" src={boatLogo} alt="boat-logo-full" />
+        <img src={boatLogo} alt="boat-logo-full" />
 
         <nav className="mb-[200px] uppercase">
           <ul className="hidden lg:flex flex-col text-xl m-0 font-bold">
