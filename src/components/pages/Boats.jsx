@@ -37,7 +37,7 @@ const Boats = () => {
 
       {boats.length === 0 && (
         <>
-          <h1 className="font-semibold text-2xl">
+          <h1 className="font-semibold text-lg lg:text-2xl text-center">
             There are no boats yet. Please create one.
           </h1>
         </>
