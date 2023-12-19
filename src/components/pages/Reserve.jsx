@@ -7,12 +7,11 @@ import { createReservation } from '../../redux/reservations/reservationsSlice';
 function Reserve() {
   const [boats, setBoats] = useState([]);
   const user = useSelector(selectUser);
-  const [username, setUsername] = useState(user.name);
+  const [username, setUsername] = useState(user?.name);
   const [city, setCity] = useState('');
   const [date, setDate] = useState('');
   const [boatId, setBoatId] = useState(undefined);
   const dispatch = useDispatch();
-  console.log(user.name);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
