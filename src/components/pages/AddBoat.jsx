@@ -16,7 +16,7 @@ const AddBoat = () => {
     price: 0,
     color: '',
     rent_price: 0,
-    user_id: 1,
+    user_id: user?.id,
     picture: '',
   });
 
@@ -28,7 +28,6 @@ const AddBoat = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(createBoat(boatData));
-    // Clear the form after submission
     setBoatData({
       name: '',
       description: '',
@@ -173,6 +172,6 @@ const AddBoat = () => {
       )}
     </>
   );
-};
+}
 
 export default AddBoat;
