@@ -20,9 +20,9 @@ function MyReservations() {
     <>
       {user === null ? (
         <section className="h-full flex justify-center items-center">
-          <article className="flex flex-col gap-4 border border-slate-950 rounded-md p-4">
+          <article className="flex flex-col gap-4 border border-slate-950 rounded-md p-4 mx-auto max-w-xs lg:max-w-lg">
             <h2 className="font-black uppercase text-4xl text-center">Acces Denied</h2>
-            <p>Please Log In first so you can see all your Reservations.</p>
+            <p className="text-center text-md">Please Log In first so you can see all your Reservations.</p>
           </article>
         </section>
       ) : (

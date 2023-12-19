@@ -50,7 +50,7 @@ const AddBoat = () => {
     <>
       {user === null ? (
         <section className="h-full flex justify-center items-center">
-          <article className="flex flex-col gap-4 border border-slate-950 rounded-md p-4">
+          <article className="flex flex-col gap-4 border border-slate-950 rounded-md p-4 mx-auto max-w-xs lg:max-w-lg">
             <h2 className="font-black uppercase text-4xl text-center">
               Acces Denied
             </h2>
