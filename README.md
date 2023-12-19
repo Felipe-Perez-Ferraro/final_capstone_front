@@ -1,33 +1,39 @@
 <a name="readme-top"></a>
+<div align="center">
+
+  <h1><b>Reserve Boats</b></h1>
+
+</div>
 
 <!-- TABLE OF CONTENTS -->
 
 # 📗 Table of Contents
 
-- [📖 About the Project](#about-project)
-  - [🛠 Built With](#built-with)
-    - [Tech Stack](#tech-stack)
-    - [Key Features](#key-features)
-- [🚀 Live Demo](#live-demo)
-- [🚀 Back End Part](#back-end-part)
-- [💻 Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Setup](#setup)
-  - [Install](#install)
-  - [Usage](#usage)
-  - [Run tests](#run-tests)
-- [👥 Authors](#authors)
-- [🔭 Future Features](#future-features)
-- [🤝 Contributing](#contributing)
-- [⭐️ Show your support](#support)
-- [🙏 Acknowledgements](#acknowledgements)
-- [📝 License](#license)
+- [📗 Table of Contents](#-table-of-contents)
+- [📖 Final Capstone Project Frontend ](#-final-capstone-project-frontend-)
+  - [🛠 Built With ](#-built-with-)
+    - [Tech Stack ](#tech-stack-)
+    - [Key Features ](#key-features-)
+  - [🚀 Back End Part ](#-back-end-part-)
+  - [💻 Getting Started ](#-getting-started-)
+    - [Prerequisites](#prerequisites)
+    - [Setup](#setup)
+    - [Install](#install)
+    - [Usage](#usage)
+  - [👥 Authors ](#-authors-)
+  - [🔭 Future Features ](#-future-features-)
+  - [🤝 Contributing ](#-contributing-)
+  - [⭐️ Show your support ](#️-show-your-support-)
+  - [🙏 Acknowledgments ](#-acknowledgments-)
+  - [📝 License ](#-license-)
 
 <!-- PROJECT DESCRIPTION -->
 
 # 📖 Final Capstone Project Frontend <a name="about-project"></a>
 
-**Final Capstone Project Frontend** is a website made in Ruby on Rails and React where you can book a ride in a boat, add a new boat or delete it!.
+**Reserve Boats** is an innovative web platform crafted using a dynamic tech stack that includes Ruby on Rails with Postgresql, coupled with React, React Router, and Redux. Upon seamless registration and login, users gain access to a plethora of features, such as booking boat rides, adding new boats to the inventory, and effortlessly removing them when needed.
+
+This user-friendly site boasts a responsive design, ensuring a seamless experience across various devices. The aesthetic appeal is enhanced through the implementation of Tailwind CSS, delivering a visually pleasing and intuitive interface. Dive into the world of maritime adventures with Reserve Boats, where simplicity meets functionality."
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -59,15 +65,11 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **Added react code**
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LIVE DEMO -->
-
-## 🚀 Live Demo <a name="live-demo"></a>
-
-No live demo yet.
+- **User Sign up and Login/Logout**
+- **Load Boat List from the Database**
+- **Add and Delete Boats**
+- **Create and view Reservations**
+- **Sweetalert2 alert messages**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -75,7 +77,9 @@ No live demo yet.
 
 ## 🚀 Back End Part <a name="back-end-part"></a>
 
-[Back End Part](https://github.com/Felipe-Perez-Ferraro/final_capstone_back)
+The site has 2 separate repositories, this is the Frontend repository.
+
+Link to the [Back End Repository](https://github.com/Felipe-Perez-Ferraro/final_capstone_back)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -84,8 +88,6 @@ No live demo yet.
 ## 💻 Getting Started <a name="getting-started"></a>
 
 To get a local copy up and running, follow these steps.
-
-### Prerequisites
 
 ### Prerequisites
 
@@ -99,7 +101,7 @@ Clone this repository to your desired folder:
 
 ```sh
   cd my-folder
-  git clone https://github.com/Felipe-Perez-Ferraro/hello-react-front-end
+  git clone https://github.com/Felipe-Perez-Ferraro/final_capstone_front.git
 ```
 
 ### Install
@@ -119,14 +121,6 @@ To run the project, execute the following command:
   npm start
 ```
 
-### Run tests
-
-To run tests, run the following command:
-
-```sh
-  npm test
-```
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
@@ -136,14 +130,17 @@ To run tests, run the following command:
 👤 **Felipe Perez Ferraro**
 
 - GitHub: [@githubhandle](https://github.com/Felipe-Perez-Ferraro)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/felipe-perez-ferraro-6b9358218/)
 
 👤 **Ulises Cappa**
 
-- GitHub: [@githubhandle](https://github.com/ulises2607)
+- GitHub: [@ulises2607](https://github.com/ulises2607)
+- LinkedIn: [Cesar Ulises Cappa Subelza](https://www.linkedin.com/in/cesar-ulises-cappa-subelza/)
 
 👤 **Hajnalka Oltyan**
 
-- GitHub: [@githubhandle](https://github.com/hajnaloltyan)
+- GitHub: [@hajnaloltyan](https://github.com/hajnaloltyan)
+- LinkedIn: [Hajnal Oltyan](https://www.linkedin.com/in/hajnaloltyan)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -151,7 +148,9 @@ To run tests, run the following command:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **Web Styling**
+- [ ] **Implementing proper Authentication**
+- [ ] **Assigning user roles, like normal user and admin**
+- [ ] **Add payment methods**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -177,7 +176,10 @@ If you like this project please share with your friends and family!
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
+The design idea is provided by [Murat Korkmaz on Behance](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign)
+
 I would like to thank Microverse for teach me and support me to do this.
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LICENSE -->
