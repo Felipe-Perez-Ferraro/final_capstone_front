@@ -94,6 +94,7 @@ function Reserve() {
                     value={date}
                     placeholder=""
                     required
+                    min={new Date().toISOString().split('T')[0]}
                     className="border border-white p-1 text-lime-700 font-semibold rounded outline-none bg-white w-full lg:w-40"
                     onChange={(e) => {
                       setDate(e.target.value);
